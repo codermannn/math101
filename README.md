@@ -2,77 +2,72 @@
 
 > *"What I cannot create, I do not understand."* — Richard Feynman
 
-A repository completely redesigned to teach the **mathematical intuition** behind data structures and algorithms. 
-
-This repository fundamentally rejects the academic instinct of: `Definition → Theorem → Proof → Example`.  
-Instead, every single notebook enforces the opposite: **`Question → Play → Pattern → Explanation → Formalism`**.
+A self-learning laboratory built completely from first principles. Instead of burying you in academic definitions, this repository assumes that **tinkering with broken code** produces mathematics intuitively. 
 
 ---
 
-## 🚀 Quick Start & How to Move Through the Repo
+## 🚀 Quick Start
 
-```bash
-# Install dependencies
-uv sync
+1. Install dependencies with `uv sync`
+2. Launch Jupyter Lab with `uv run jupyter lab`
+3. Begin interacting with the notebooks!
 
-# Launch Jupyter (Ensure your widgets are working!)
-uv run jupyter lab
-```
-
-### The `src/math101/` Arsenal: Keeping Notebooks Clean
-Because you ran `uv sync`, the `src/math101` folder is automatically installed as a local package. 
-**Never clutter your notebooks with 50-line `matplotlib` or algorithm setups!**
-If an interactive visualization takes a lot of helper code, write it inside `src/math101/viz.py` and simply import it into your notebook like a native library:
-
-```python
-# No ugly sys.path hacks required! Just import directly:
-from math101.viz import plot_interactive_matrix
-
-plot_interactive_matrix() 
-```
-
-### The Arc of Every Concept
-Do not skip around within a notebook. Follow the psychological arc meticulously designed into every `.ipynb` file:
-
-1. **The Hook**: You will be confronted with an approachable but surprising question.
-2. **The Playground**: **STOP READING.** Play with the `ipywidgets` sliders. Push them to the extremes. *Feel* the data before any math is introduced.
-3. **The Pattern**: What did you notice? This is your *Aha!* moment.
-4. **⚠️ Common Wrong Intuition**: We explicitly state the way most people get this wrong. Correcting bad assumptions builds durable understanding.
-5. **The Explanation (ADEPT)**: Analogy → Diagram → Example → Plain English → Technical Definition.
-6. **The Proof**: Geometric and visual proofs over symbolic algebra.
-7. **🔬 Break-It Lab**: We wrote code that works. Your job is to break it, find out why, and fix it. There are no "isolated exercises." Tinkering *is* doing.
-8. **The Feynman Technique**: You must explain it in the empty cell provided without jargon.
-9. **Review**: Extract these Q/A pairs to your Anki.
+You'll notice you don't need `sys.path` hacks. `src/math101` automatically installs itself as a local utility library during `uv sync`.
 
 ---
 
-## 📚 Concept Dependency Graph
+## 📚 Concept Dependency Graph & Reading Order
 
-Move through the repository structurally, not chronologically.
+Follow this exact structure. Do not skip ahead — mathematics is a dependency graph, not a list.
 
 ```text
 math101/
-├── 00-are-you-ready/         ← Diagnostic hooks.
-├── 01-seeing-with-code/      ← Learn your visualization tools (matplotlib, plotly).
-├── 02-how-things-scale/      ← Start Here. Big-O, vanishing terms, recurrences.
-│   └── ↳ 03c-when-choices-explode/  ← Depends on scaling. Permutations, Recursion Trees, DP.
-├── 03a-transforming-space/   ← Independent Track: Matrices, linear transformations, geometric intuition.
-└── 03b-taming-uncertainty/   ← Independent Track: Randomness, Monte Carlo, Expected values.
-    └── ↳ 04-putting-it-together/    ← Synthesis. Mixing algorithms with randomness and space.
-
-Global Tools:
-├── animations/               ← Standalone Manim code for cinematic visualisations.
-├── scratch/                  ← Free exploration and messy ideas. Never commit polished work here.
-├── INSIGHTS.md               ← Your ongoing log of "Aha!" and "Huh?" moments.
-├── REVIEW.md                 ← Central aggregator for spaced repetition flashcards.
-└── math101_template.ipynb    ← Start here for every new concept. Use it.
+├── 00-are-you-ready/
+│   ╰── 01_diagnostic.ipynb                       → Warm up your high-school math baseline.
+│
+├── 01-seeing-with-code/
+│   ╰── 01_visualization_toolbox.ipynb            → Build a visceral connection between Python arrays and visual graphs.
+│
+├── 02-how-things-scale/                          « START CORE CONCEPTS HERE »
+│   ├── 01_growth_rates_and_big_o.ipynb           → Use sliders to feel exponential vanishing terms.
+│   ╰── 02_recurrences_and_master_theorem.ipynb   → Look at exploding recurrence trees geometrically.
+│
+├── 03c-when-choices-explode/                     « COMBINATORICS TRACK »
+│   ├── 01_recursion_trees_and_counting.ipynb     → Why a simple maze search takes a billion steps.
+│   ╰── 02_dynamic_programming.ipynb              → Fixing overlapping branches via memoized intuition.
+│
+├── 03a-transforming-space/                       « GEOMETRY TRACK »
+│   ├── 01_vectors_and_matrices.ipynb             → Watch 2D arrays transform space dynamically.
+│   ╰── 02_graphs_encoded_as_matrices.ipynb       → Adjacency matrices as transformation pipelines.
+│
+├── 03b-taming-uncertainty/                       « PROBABILITY TRACK »
+│   ╰── 01_randomized_behavior.ipynb              → Force algorithms to gamble and observe expected outcomes.
+│
+╰── 04-putting-it-together/                       « SYNTHESIS »
+    ╰── 01_complexity_of_randomized_algorithms.ipynb → Master the intersection of graph limits and randomness.
 ```
+
+*(Note: The separate `exercises.ipynb` notebooks were explicitly merged into the core notebooks under the **Break-It Lab** sections. The separation between theory and practice is an academic illusion.)*
+
+---
+
+## 🧬 The Arc of Every Concept
+Do not skip around within a notebook! Each one operates under a strict psychological sequence:
+
+1. **The Hook**: A baffling question to make you curious.
+2. **The Playground**: Interact with the sliders. Break the system before seeing the math.
+3. **The Pattern**: "What did you notice?"
+4. **⚠️ Common Wrong Intuition**: Explicitly debunking the worst assumption people make.
+5. **The Explanation (ADEPT)**: Analogy → Diagram → Example → Plain English → Math.
+6. **The Proof**: Geometric logic over raw algebra.
+7. **🔬 Break-It Lab**: Tinkering and pushing the inputs to destruction to find limits.
+8. **The Feynman Technique**: You forcing yourself to explain it back.
+9. **Review**: Pre-made flashcards ready to dump into your Anki.
 
 ---
 
 ## 🔧 AI Copilot Guide
-
-If you are using an LLM to assist you, **always feed the AI the `LLM_PROMPT.md` file first**. It forces the model to abandon textbook-style lecturing and adhere to our strict pedagogical principles of visually scaffolding math.
+Using Claude or ChatGPT? Feed it `LLM_PROMPT.md` **before** asking for help. It enforces our rigorous visual pedagogy mapping and bans textbook-style exposition.
 
 ---
 
@@ -80,9 +75,6 @@ If you are using an LLM to assist you, **always feed the AI the `LLM_PROMPT.md` 
 
 | Domain | Best free interactive resource | Best book for depth | Best video for intuition |
 |--------|-------------------------------|---------------------|--------------------------|
-| **Linear Algebra** | [Immersive Math](http://immersivemath.com/ila/index.html) (Interactive textbook) | *Linear Algebra Done Right* by Sheldon Axler | 3Blue1Brown: *Essence of Linear Algebra* |
-| **Growth Rates / DSA** | [VisuAlgo.net](https://visualgo.net/) | *Grokking Algorithms* by Aditya Bhargava | BetterExplained: *Sorting algorithms intuition* & CS50 |
-| **Probability** | [Seeing Theory](https://seeingtheory.brown.edu/) (Brown University) | *The Art of Probability* by Richard Hamming | 3Blue1Brown: *Binomial distributions / Bayes Theorem* |
-| **Calculus** *(For bridging)* | [Desmos Calculus Art](https://www.desmos.com/) *(Building derivatives visually)* | *Calculus Made Easy* by Silvanus P. Thompson | 3Blue1Brown: *Essence of Calculus* |
-
-*Built for those who want to play with the machinery of algorithms, not just memorize how they turn on.*
+| **Linear Algebra** | [Immersive Math](http://immersivemath.com/ila/index.html) | *Linear Algebra Done Right* by Sheldon Axler | 3Blue1Brown: *Essence of Linear Algebra* |
+| **Growth Rates / DSA** | [VisuAlgo.net](https://visualgo.net/) | *Grokking Algorithms* by Bhargava | BetterExplained: *Sorting algorithms intuition* |
+| **Probability** | [Seeing Theory](https://seeingtheory.brown.edu/) | *The Art of Probability* by Richard Hamming | 3Blue1Brown: *Binomial distributions* |
