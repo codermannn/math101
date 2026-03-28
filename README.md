@@ -10,7 +10,7 @@ A self-learning laboratory built completely from first principles. Instead of bu
 
 1. Install dependencies with `uv sync`
 2. Launch Jupyter Lab with `uv run jupyter lab`
-3. Begin interacting with the notebooks!
+3. **Open `00_START_HERE.ipynb`**. Do not manually click through folders. Let the Control Panel hold your hand.
 
 You'll notice you don't need `sys.path` hacks. `src/math101` automatically installs itself as a local utility library during `uv sync`.
 
@@ -22,8 +22,7 @@ Follow this exact structure. Do not skip ahead — mathematics is a dependency g
 
 ```text
 math101/
-├── 00-are-you-ready/
-│   ╰── 01_diagnostic.ipynb                       → Warm up your high-school math baseline.
+├── 00_START_HERE.ipynb                           → MUST OPEN THIS FIRST! It acts as your Master Control Panel.
 │
 ├── 01-seeing-with-code/
 │   ╰── 01_visualization_toolbox.ipynb            → Build a visceral connection between Python arrays and visual graphs.
