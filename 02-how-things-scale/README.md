@@ -1,9 +1,6 @@
 # 📈 Growth and Complexity
-
 > *If your algorithm is slow, it's probably because of growth rates — not bad code.*
-
 ---
-
 ## Why This Matters
 
 Every algorithm has a **growth function** — how much work it does as the input size increases.
@@ -17,18 +14,12 @@ Understanding growth rates gives you:
 
 ---
 
-## Notebooks
+---
+## Core Curriculum
 
-| # | Notebook | Focus |
-|---|---------|-------|
-| 1 | `01_unified_growth_explorer.ipynb` | All growth rates visualized, asymptotic dominance |
-| 2 | `02_exercises.ipynb` | 🟢🟡🔴 Self-test with auto-checked answers |
-| 3 | `03_recurrence_relations.ipynb` | Master Theorem, divide & conquer recurrences |
+This module contains the following deeply linked notebooks. Do not skip the sequence.
+
+**1. 01 Growth Rates And Big O** (`01_growth_rates_and_big_o.ipynb`)
+**2. 02 Recurrences And Master Theorem** (`02_recurrences_and_master_theorem.ipynb`)
 
 ---
-
-## Key Insight
-
-Growth rates aren't about exact numbers. They're about **which term wins when n gets huge**.
-
-$3n^2 + 100n + 999$ behaves like $n^2$ for large $n$. The constant 999, the linear term 100n — they become noise. Only the **dominant term** matters.
