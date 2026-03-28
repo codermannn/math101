@@ -1,0 +1,16 @@
+[project]
+name = "math101"
+version = "0.1.0"
+description = "DSA Math Intuition Lab — build mathematical intuition for data structures and algorithms through visualization, simulation, and active recall"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "ipywidgets",
+    "jupyter",
+]
+
+[build-system]
+requires = ["uv_build>=0.10.4,<0.11.0"]
+build-backend = "uv_build"
